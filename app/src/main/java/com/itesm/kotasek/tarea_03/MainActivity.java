@@ -1,5 +1,7 @@
 package com.itesm.kotasek.tarea_03;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -47,5 +49,19 @@ public class MainActivity extends AppCompatActivity implements CapturarFrag.OnDa
 
     public LinkedList<Data> getData(){
         return dataList;
+    }
+
+    public void dialogue(){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+        builder.setMessage("Debes llenar ambos campos");
+        builder.setTitle("Pssst");
+
+        AlertDialog dialogue = builder.create();
+        builder.setPositiveButton("Accept", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+            }
+        });
+        builder.show();
     }
 }

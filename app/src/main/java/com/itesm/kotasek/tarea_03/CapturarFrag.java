@@ -16,7 +16,7 @@ public class CapturarFrag extends Fragment implements View.OnClickListener {
 
     Button btn;
     EditText etMat;
-    TextView etNom;
+    EditText etNom;
     View view;
     OnDataPass dataPasser;
 
@@ -42,6 +42,11 @@ public class CapturarFrag extends Fragment implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
+        if(etMat.getText().toString().equals("") || etNom.getText().toString().equals("") ){
+            MainActivity activity = (MainActivity) getActivity();
+            activity.dialogue();
+            return;
+        } else
         dataPasser.onDataPass(new Data(etMat.getText().toString(),etNom.getText().toString()));
     }
 
@@ -50,6 +55,7 @@ public class CapturarFrag extends Fragment implements View.OnClickListener {
         super.onAttach(context);
         dataPasser = (OnDataPass) context;
     }
+
 
 
 }
